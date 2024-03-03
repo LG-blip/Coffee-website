@@ -318,6 +318,7 @@ button img{
 .last{
     color:#000000;
     font-family: Literata, 'Source Sans Pro';
+    text-align: end;
 
 }
 .last h4{
