@@ -75,6 +75,7 @@ body {
 }
 
 .ph {
+    -webkit-text-fill-color: #fff;
     color: white;
     text-align: center;
     font-size: 30px;
@@ -262,6 +263,7 @@ button img{
     font-size: 28px;
   }
 .contact p, .services ul li{
+    -webkit-text-fill-color: #fff;
     font-size: 20px;
 }
 
