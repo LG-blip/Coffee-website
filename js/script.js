@@ -1,31 +1,4 @@
-// let slideIndex = 1;
-// showSlides(slideIndex);
-
-// function plusSlides(n) {
-//   showSlides(slideIndex += n);
-// }
-
-// function currentSlide(n) {
-//   showSlides(slideIndex = n);
-// }
-
-// function showSlides(n) {
-//   let i;
-//   let slides = document.getElementsByClassName("mySlides");
-//   let dots = document.getElementsByClassName("dot");
-//   if (n > slides.length) { slideIndex = 1 }
-//   if (n < 1) { slideIndex = slides.length }
-//   for (i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "none";
-//   }
-//   for (i = 0; i < dots.length; i++) {
-//     dots[i].className = dots[i].className.replace(" active", "");
-//   }
-//   slides[slideIndex - 1].style.display = "block";
-//   dots[slideIndex - 1].className += " active";
-// }
-
-var images = ["./assets/chickmanglur-scenery.jpg", "./assets/chickmanglur-scene.jpg", "./assets/rectangle-27.png"]
+var images = ["./assets/bg-new.jpg", "./assets/chickmanglur-scene.jpg", "./assets/rectangle-27.png"]
 
 var imageChange = document.getElementById("box")
 
@@ -37,3 +10,40 @@ setInterval(function() {
         i =  0;
       }
 }, 3000);
+
+let slideIndex = 0;
+
+function showSlides() {
+    const slides = document.querySelectorAll('.slider');
+    const totalSlides = slides.length;
+    const slidesToShow = window.matchMedia("(min-width: 601px)").matches ? 3 : 1;
+
+    for (let i = 0; i < totalSlides; i++) {
+        if (i >= slideIndex && i < slideIndex + slidesToShow) {
+            slides[i].style.display = 'block';
+        } else {
+            slides[i].style.display = 'none';
+        }
+    }
+    const nextButton = document.querySelector('.next');
+    nextButton.disabled = slideIndex + slidesToShow >= totalSlides;
+    const prevButton = document.querySelector('.prev');
+    prevButton.disabled = slideIndex === 0;
+}
+
+function prevSlide() {
+    const slidesToShow = window.matchMedia("(min-width: 601px)").matches ? 3 : 1;
+    slideIndex -= slidesToShow;
+    if (slideIndex < 0) {
+        slideIndex = 0;
+    }
+    showSlides();
+}
+
+function nextSlide() {
+    const slidesToShow = window.matchMedia("(min-width: 601px)").matches ? 3 : 1;
+    slideIndex += slidesToShow;
+    showSlides();
+}
+
+showSlides();

@@ -6,25 +6,17 @@
 }
 
 body {
-    height: 350vh;
-    overflow-x: none;
-    overscroll-behavior: none;
     scroll-behavior: smooth;
-    position: relative;
     object-fit: contain;
     background-size: auto 100%;
     background-image: url("/assets/background-image-1-bg.png");
   }
-
-
   /*  Title Container */
 
   .container {
     display: flex;
     flex-direction: column;
     width: auto;
-    height: 340vh;
-    position: relative;
     margin: 40px 40px;
     object-fit: cover;
     background: rgba(128, 128, 128, 0.4);
@@ -33,45 +25,53 @@ body {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
   }
-
-  .title-container {
+.title-container {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     background: url(/assets/rectangle-27-bg.png) no-repeat;
     width: 100%;
-    height: 17%;
-    position: relative;
-    background-size: 100% 100%;
-    margin-bottom: 10px;
-  }
+    background-size: 100% auto;
+    background-position: center 50%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .title-text {
-    margin: 50px;
-    background-color: rgba(250, 250, 250, 0.6);
-    padding: 20px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+    background-color: rgba(250, 250, 250, 0.5);
+    margin: 40px;
+    padding:20px;
+    border-radius:10px;
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     text-align: center;
 }
 
 .title-text p{
-    margin: 3%;
     font-weight: 400;
     color: #000000;
     font-size: 30px;
     font-family: Literata, 'Source Sans Pro';
+    text-align: center;
+    width:80%;
 }
 
 .title-text h1 {
     text-align: center;
-    margin-top: 2%;
     font-family: Lalezar, 'Source Sans Pro';
     font-size: 80px;
     font-weight: 800;
-    line-height: 1rem;
-    color: rgb(0, 0, 0);
+        display: inline-block;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: #744342;
+        -webkit-text-stroke-width: 0.1px;
+        -webkit-text-stroke-color: rgb(26, 2, 2);
+        line-height:94px;
 }
 
 .ph {
@@ -86,45 +86,55 @@ body {
 /* Grid 1 */
 
 .grid1 {
-    display: flex;
-    flex-direction: row;
-    float: left;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap:20px;
     font-size: 15px;
     font-family: Literata, 'Source Sans Pro';
     color: #ffffff;
+    background: #00000066;
+    padding: 48px;
 }
-
-.grid1 .grid1-travel-itenary{
-    width: 100%;
-    margin: 5px 0 13px 20px;
+ol{
+    list-style-type: none;
 }
-
-.grid1 .itenary-title {
-    font-weight: bold;
-    font-size: 25px;
-    text-decoration: underline;
-}
-
-.grid1 .grid1-image{
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-}
-
 .grid1 img {
-    position: relative;
-    margin: 1% 5% 0 0;
-    width: 60%;
-    float: right;
+    width:500px;
+    height:auto;
 }
 
+.left-pod {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.first-pod{
+    display: flex;
+    flex-direction: column;
+    gap:4px;
+}
+.first-pod h2{
+font-size:26px;
+line-height:44px;
+text-decoration: underline;
+}
+.first-pod p{
+    font-size:20px;
+}
+.first-pod ol li{
+    font-size:18px;
+}
 
+.last-pod p{
+    font-size:12px ;
+}
 /* Carousel  */
 
-
+.carousel-section{
+    padding:56px;
+    background-color: rgba(255, 255, 255, 0.35);
+}
 .carousel-title {
     display: flex;
     font-weight: bold;
@@ -132,383 +142,390 @@ body {
     text-decoration: underline;
     align-items: center;
     justify-content: center;
-    background-color: rgba(128, 128, 128, 0.4);
+    text-align: center;
   }
   
   .carouselcontainer{
     display: flex;
-    margin: 20px 0 0 20px;
-    width: 1300px;
-    height: 300px;
-    overflow-x: scroll;
+    padding: 20px 20px 0 20px;
+    width: auto;
   }
 
-  .carouselcontainer div{
+  .carouselcontainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slides{
     width: 100%;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 20px;
-    padding: 10px;
-    flex: none;
+   margin-left:10px;
+   margin-right: 10px;
+    padding: 20px;
   }
 
   .carouselcontainer div img{
     width: 100%;
     border-radius: 12px;
-    translate: 1s;
+  }
+  .prev{
+    margin-right: 10px;
+  }
+  .next{
+    margin-left: 10px;
   }
   
+  .empty{
+    background: #00000066;
+
+  }
+  .carouselcontainer {
+      max-width: 100%;
+      overflow: hidden;
+      position: relative;
+}
+
+.slides {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:20px;
+}
+
+.slider {
+    flex: 0 0 auto;
+    max-width:100%;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding:8px;
+    background-color: #f3ebeb;
+    border-radius: 50%;
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+button:hover{
+    background-color: #ded9d9;
+    transition: all 0.5s;
+}
 
 
+button img{
+    width:10px;
+    height:10px;
+  
+}
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+  /* Grid 2 */
+.contact-section{
+ background: #00000066;
+
+}
+  .grid2 {
+  
+    display: flex;
+    justify-content: space-around;
+    color: #ffffff;
+    padding:40px 0 40px 0;
+    gap:30px;
+    
+  }
+  
+  .contact {
+    font-family: Literata, 'Source Sans Pro';
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+  }
+  
+  .services {
+    font-family: Literata, 'Source Sans Pro';
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+  }
+  .contact h3, .services h3{
+
+    font-size: 28px;
+  }
+.contact p, .services ul li{
+    font-size: 20px;
+}
+
+  .tagline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:12px;
+    padding-bottom: 32px;
+    text-align: center;
+
+  }
+  
+  .tagline p {
+    font-size: 25px;
+    font-weight: 900;
+    color: #ffffff;
+    font-family: Tienne, 'Source Sans Pro';
+  }
+  
+  .taglin p {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 900;
+    color: #ffffff;
+    font-family: Tienne, 'Source Sans Pro';
+  }
+
+  /* Grid 3 */
 
 
+.grid3 {
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 40px;
+    background-color: rgba(128, 128, 128, 0.35);
+  }
+  .about-section{
+    background-color: rgba(128, 128, 128, 0.35);
+  }
 
+.last-grid{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:40px;
+    gap:20px;
 
+}
+.last{
+    color:#000000;
+    font-family: Literata, 'Source Sans Pro';
 
+}
+.last h4{
+    font-family: Literata, 'Source Sans Pro';
+font-size: 32px;
+text-decoration: underline;
+}
 
-
-
-
-
-
+.about-section{
+    background-color: rgba(255, 255, 255, 0.35);
+}
+.img-last img{
+    width:500px;
+    height:auto;
+}
 
 
 /*  Media Queries */
 
-@media screen and (max-width: 1263px) {
-    .title-text h1{
-        font-size: 60px;
-        text-align: center;
-    }
-
-    .title-text p{
-        font-size: 25px;
-        text-align: center;
-    }
-
+@media screen and (max-width: 1264px){
+   .title-text{
+    margin:10px;
+   }
+   .first-pod p, .first-pod ol li{
+    font-size: 16px;
+   }
 }
 
 @media screen and (max-width: 1024px) {
-    .container {
-        height: 300vh;
+    .title-text{
+        margin:10px;
+       }
+       .title-container{
+        height:380px;
+       }
+    .first-pod h2{
+        font-size: 22px;
+    }
+    .last-grid,.grid1{
+        flex-direction: column;
+    }
+    .grid1{
+        padding:20px;
+       display: flex;
+       flex-direction: column;
+        align-items: center;
     }
 
+    .last-grid img{
+        width:100%;
+        height:300px;
+    }
     .title-container{
-        height: 60vh;
-        background-size: 100% 100%;
-    }
-
+            background-size: 100% 100%;
+            height:300px;
+           }
     .title-text h1{
-        font-size: 50px;
-        text-align: center;
-    }
-
+            font-size: 40px;
+            line-height:42px;
+           }
     .title-text p{
-        font-size: 25px;
-        text-align: center;
+     font-size:22px;
     }
+   .ph{
+    font-size:20px ;
+   }
+   .carousel-title h2{
+    font-size: 34px;
+   }
+   .left-pod{
+    width:100%;
+   }
 
-    /* Grid - 1 */
-
-    .grid1 {
-        display: flex;
-        flex-direction: row;
-        float: left;
-        align-items: center;
-        justify-content: center;
-        left: 20px;
-        font-size: 14px;
-        font-family: Literata, 'Source Sans Pro';
-        color: #ffffff;
-    }
-    
-    .grid1 .grid1-travel-itenary{
-        width: 100%;
-        margin: 10px 0 13px 20px;
-    }
-    
-    .grid1 .itenary-title {
-        font-weight: bold;
-        font-size: 19px;
-        text-decoration: underline;
-    }
-    
-    .grid1 .grid1-image{
-        width: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: end;
-    }
-    
-    .grid1 img {
-        position: relative;
-        margin: 1% 5% 0 0;
-        width: 70%;
-        float: right;
-    }
-
-    /* Carousel */
-
-    .carousel-title{
-        font-size: 20px;
-    }
-    
-    .carouselcontainer{
-        display: flex;
-        margin: 20px 0 0 20px;
-        width: 900px;
-        height: 200px;
-        overflow-x: scroll;
-      }
-    
-      .carouselcontainer div{
-        width: 100%;
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-gap: 20px;
-        padding: 10px;
-        flex: none;
-      }
-    
-      .carouselcontainer div img{
-        width: 100%;
-      }
+.tagline p{
+    font-size: 20px;
+}
+.carousel-section{
+    padding:20px;
+}
+.carousel-title{
+    font-size: 28px;
+}
+.carouselcontainer{
+    padding: 0;
+}
 
 
 }
 
-
-@media screen and (max-width: 768px) {
-
-    .container {
-        height: 100vh;
-        width: auto;
+@media screen and (max-width: 900px){
+    .contact p, .services ul li{
+        font-size: 16px;
     }
-
-    .title-container{
-        height: 45vh;
+    .tagline p{
+        font-size: 16px;
     }
+    .container{
+        margin:10px;
+    }
+    .carousel-section{
+        padding:20px;
+    }
+    .carousel-title{
+        font-size: 28px;
+    }
+    .carouselcontainer{
+        padding: 0;
+    }
+    .last{
+        text-align: center;
+    }
+    .last p{
+        text-align: justify;
+    }
+}
 
+
+@media screen and (max-width: 600px) {
+    .grid1{
+        padding:20px;
+    }
     .title-text h1{
-        font-size: 40px;
-        text-align: center;
-    }
-
-    .title-text p{
-        font-size: 20px;
-        text-align: center;
-    }
+        font-size: 30px;
+        line-height:1;
+       }
+       .title-text p{
+        font-size:18px;
+        width:100%;
+       }
 
     .ph{
+    font-size:18px ;
+    }
+    .grid2{
+        display:flex;
+        flex-direction: column;
+    }
+    .grid1 img{
+        width:100%;
+    }
+    .carousel-section{
+        padding:20px;
+    }
+    .carousel-title h2{
         font-size: 20px;
     }
-
-    /* Grid - 1 */
-
-    .grid1 {
-        height: 30vh;
+    .slides {
+        flex-wrap: nowrap;
     }
 
-    .grid1 .grid1-text{
-        float: left;
-        width: 50%;
-        height:50%;
+    .slider {
+        margin-right: 0;
     }
 
-    .grid1 .grid1-travel-itenary{
-        top: 42%;
-        left: 2rem;
-        font-size: small;
+    .slides {
+        display: flex;
+        flex-wrap: nowrap;
     }
 
-    .grid1 .itenary-title{
-        font-size: medium;
+    .slider {
+        flex: 0 0 auto;
+        margin-right: 10px;
     }
-
-    .grid1 .grid1-travel-itenary{
-        height: 50vh;
-        font-size: 10px;
+    .services ul{
+        padding:10px;
+    }
+    .grid2,.tagline{
+        padding:20px;
+    }
+    .last{
+        text-align: center;
+    }
+    .last p{
+        text-align: justify;
     }
 }
 
-@media screen and (max-width: 425px) {
+
+@media screen and (max-width: 400px) {
+    .last-grid{
+        padding:20px;
+    }
+    .last-grid img{
+        height:200px;
+    }
+    .services ul{
+        padding:10px;
+    }
+    .grid2,.tagline{
+        padding:20px;
+    }
     .container{
-        height: 300vh;
+        margin:0;
     }
-
-    .title-container {
-        background-size: 100% 100%;
-        height: 30vh;
-    }
-
-    .title-text {
-        margin: 25px;
-        align-items: center;
-        justify-content: left;
-    }
-    .title-text h1{
-        font-size: 22px;
-        text-align: center;
-    }
-
-    .title-container .ph{
+       .title-text{
+        width: auto;
+        height: auto;
+       }
+    .title-text p{
         font-size: 12px;
     }
-
-    .title-text p{
-        font-size: 10px;
+    .ph{
+        font-size:16px ;
+        }
+    .last{
         text-align: center;
     }
-
-    /* Grid 1 */
-
-    .grid1 {
-        display: flex;
-        flex-direction: row;
-        float: left;
-        align-items: center;
-        justify-content: center;
-        left: 20px;
-        font-size: 14px;
-        font-family: Literata, 'Source Sans Pro';
-        color: #ffffff;
-    }
-    
-    .grid1 .grid1-travel-itenary{
-        width: 100%;
-        margin: 10px 0 13px 20px;
-    }
-    
-    .grid1 .itenary-title {
-        font-weight: bold;
-        font-size: 19px;
-        text-decoration: underline;
-    }
-    
-    .grid1 .grid1-image{
-        width: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: end;
-    }
-    
-    .grid1 img {
-        position: relative;
-        margin: 1% 5% 0 0;
-        width: 70%;
-        float: right;
-    }
-
-    /* Carousel */
-
-
-
-
-
-}
-
-@media screen and (max-width: 375px) {
-    .container{
-        width: auto;
-        height: 100vh;
-        margin: 20px;
-    }
-
-    .title-container {
-        background-size: 100% 100%;
-    }
-
-    .title-text {
-        margin: 25px;
-        align-items: center;
-        justify-content: left;
-    }
-    .title-text h1{
-        font-size: 18px;
-        text-align: center;
-    }
-
-    .title-text p{
-        font-size: 10px;
-        text-align: center;
-    }
-
-    /* Grid 1 */
-    .grid1 {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .grid1 .grid1-text {
-        float: left;
-    }
-
-    .grid1 .itenary-title{
-        font-size: 7px;
-    }
-
-    .grid1 .grid1-travel-itenary{
-        top: 28%;
-        left: 5%;
-        font-size: 5px;
-    }
-
-    .grid1 .grid1-image{
-        margin-top: 60px;
+    .last p{
+        text-align: justify;
     }
 }
-
-@media screen and (max-width: 320px) {
-    .container{
-        width: auto;
-        height: 100vh;
-        margin: 10px;
-    }
-
-    .title-container {
-        background-size: 100% 100%;
-    }
-
-    .title-text {
-        margin: 20px;
-        align-items: center;
-        justify-content: left;
-    }
-    .title-text h1{
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .title-text p{
-        font-size: 8px;
-        text-align: center;
-    }
-
-    /* Grid 1 */
-    .grid1 {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .grid1 .grid1-text {
-        float: left;
-    }
-
-    .grid1 .itenary-title{
-        font-size: 7px;
-    }
-
-    .grid1 .grid1-travel-itenary{
-        top: 28%;
-        left: 5%;
-        font-size: 5px;
-    }
-
-    .grid1 .grid1-image{
-        margin-top: 60px;
-    }
-}
-
-
-
