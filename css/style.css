@@ -7,6 +7,7 @@
 
 body {
     scroll-behavior: smooth;
+    overscroll-behavior: none;
     object-fit: contain;
     background-size: auto 100%;
     background-image: url("/assets/background-image-1-bg.png");
@@ -428,6 +429,9 @@ text-decoration: underline;
     .carouselcontainer{
         padding: 0;
     }
+    .last{
+        text-align: justify;
+    }
 }
 
 
@@ -483,6 +487,9 @@ text-decoration: underline;
     .grid2,.tagline{
         padding:20px;
     }
+    .last{
+        text-align: justify;
+    }
 
 }
 
@@ -513,4 +520,7 @@ text-decoration: underline;
     .ph{
         font-size:16px ;
         }
+    .last{
+        text-align: justify;
+    }
 }
